@@ -1,21 +1,21 @@
 <div class="w-screen h-screen bg-[#EFF2F5]">
     <div class="w-[432px] mx-auto">
-        <img class="h-25 w-[432px] mx-auto" src="assets/images/facebook_logo.svg" alt="">
-        <form action="" class="mx-auto bg-white flex flex-col items-center rounded-lg shadow-xl">
-            <h3 class="font-bold text-2xl">Créer un compte</h3>
-            <p class="text-[#606770]">C'est simple et rapide.</p>
+        <img class="h-25 w-[432px] mx-auto mb-2" src="assets/images/facebook_logo.svg" alt="">
+        <form action="" class="mx-auto bg-white flex flex-col items-center rounded-lg shadow-xl py-2" id="register">
+            <h3 class="font-bold text-[26px]">Créer un compte</h3>
+            <p class="text-[#606770] mb-3">C'est simple et rapide.</p>
             <hr class="w-full text-[#CCD0D5]">
             <div class="p-4">
-                <div class="w-full flex items-center justify-between">
-                    <input type="text" class="border border-[#CCD0D5] rounded p-1" placeholder="Prénom">
-                    <input type="text" class="border border-[#CCD0D5] rounded p-1" placeholder="Nom de famille">
+                <div class="w-full flex items-center justify-between mb-3 gap-3">
+                    <input type="text" name="prenom" class="border border-[#CCD0D5] rounded p-1.5" placeholder="Prénom">
+                    <input type="text" name="nom_famille" class="border border-[#CCD0D5] rounded p-1.5" placeholder="Nom de famille">
                 </div>
-                <div class="w-full">
-                    <label class="text-xs">Date de naissance</label>
+                <div class="w-full mb-2">
+                    <label class="text-xs block mb-2">Date de naissance</label>
                     <div class="flex gap-4 justify-between">
-                        <select name="" class="border border-[#CCD0D5] w-1/3 rounded p-1" id="day"></select>
-                        <select name="" class="border border-[#CCD0D5] w-1/3 rounded p-1" id="month"></select>
-                        <select name="" class="border border-[#CCD0D5] w-1/3 rounded p-1" id="year"></select>
+                        <select name="day" class="border border-[#CCD0D5] w-1/3 rounded p-1" id="day"></select>
+                        <select name="month" class="border border-[#CCD0D5] w-1/3 rounded p-1" id="month"></select>
+                        <select name="year" class="border border-[#CCD0D5] w-1/3 rounded p-1" id="year"></select>
                     </div>
                 </div>
                 <div class="mb-3">
@@ -39,9 +39,9 @@
                 
                 <p class="text-xs">En cliquant sur S’inscrire, vous acceptez nos <a href="#" class="text-blue-800">Conditions générales</a>, notre <a href="#" class="text-blue-800">Politique de confidentialité</a> et notre <a href="#" class="text-blue-800">Politique d’utilisation des cookies</a>. Vous recevrez peut-être des notifications par texto de notre part et vous pouvez à tout moment vous désabonner.</p>
                 
-                <button class="w-1/2 mt-6 mb-4 py-1 mx-auto block bg-green-600 rounded text-white font-bold text-lg" type="submit">S'inscrire</button>
+                <button class="w-1/2 mt-6 mb-4 py-1 mx-auto block bg-green-600 rounded text-white font-bold text-lg cursor-pointer" type="submit">S'inscrire</button>
                 
-                <a href="#" class="block text-center text-blue-600 text-lg">Vous avez déjà un compte ?</a>
+                <a href="#" onclick="getLogin(event)" class="block text-center text-blue-600 text-lg cursor-pointer">Vous avez déjà un compte ?</a>
             </div>
             
         </form>

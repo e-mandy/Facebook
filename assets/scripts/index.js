@@ -1,6 +1,6 @@
 window.addEventListener('load', ()=>{
-    if(sessionStorage.length === 0){
-        registerForm()
+    if(!sessionStorage.getItem('token')){
+        sessionStorage.getItem('url') === 'register' ? getRegister() : getLogin()
     }
 })
 
