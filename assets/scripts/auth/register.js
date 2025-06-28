@@ -8,7 +8,7 @@ function getRegister(){
         validationInput()
 
         if(sessionStorage.getItem('isValidForm') == true){
-            
+
         }
     })
 
@@ -122,6 +122,65 @@ function validationInput(){
         }
     })
 
-    
 }
 
+function emailVerify(){
+    const registerForm = document.getElementById('register')
+
+    let registerData = new FormData(registerForm)
+
+    email = registerData.get('email')
+
+
+    fetch(`http://localhost/Facebook/backend/auth/email_verify.php`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: email
+        })
+        .then(res => res.json())
+        .then(res =>{
+            console.log(res)
+        })
+    })
+
+}
+
+/*
+    const registerForm = document.getElementById('register')
+
+    let registerData = new FormData(registerForm)
+
+    nom = registerData.get('nom_famille')
+    prenom = registerData.get('prenom')
+    day = registerData.get('day')
+    month = registerData.get('month')
+    year = registerData.get('year')
+    genre = registerData.get('genre')
+    email = registerData.get('email')
+    password = registerData.get('password')
+
+
+    fetch(`http://localhost/Facebook/backend/auth/register.php`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            nom_famille: nom,
+            prenom: prenom,
+            day: day,
+            month: month,
+            year: year,
+            genre: genre,
+            email: email,
+            password: password
+        })
+        .then(res => res.json())
+        .then(res =>{
+            console.log(res)
+        })
+    })
+*/
