@@ -6,30 +6,52 @@ function getRegister(){
         sessionStorage.setItem('url', 'register')
         optionMaking()
         validationInput()
+
+        if(sessionStorage.getItem('isValidForm') == true){
+            
+        }
     })
 
     
 }
 
 function optionMaking(){
+    let now = new Date()
+
     let selectDay = document.getElementById('day')
     numberDay = 31
     for(let i = 1; i <= numberDay; i++){
         const option = document.createElement('option')
         option.value = i
         option.textContent = i
+        if(i == now.getDate()){
+            option.selected = true
+        }
         selectDay.appendChild(option)
         
     }
 
     let selectMonth = document.getElementById('month')
     let month = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]
-    month.map(value =>{
+    month.map((value, index) =>{
         const option = document.createElement('option')
         option.value = value
         option.textContent = value
+        if(index == now.getMonth()){
+            option.selected = true
+        }
         selectMonth.appendChild(option)
     }) 
+
+    let selectYear = document.getElementById('year')
+
+    let currentYear = now.getFullYear()
+    for(let i = currentYear; i>= currentYear - 100; i--){
+        const option = document.createElement('option')
+        option.value = i
+        option.textContent = i
+        selectYear.appendChild(option)
+    }
 }
 
 function validateName(value){
@@ -103,7 +125,3 @@ function validationInput(){
     
 }
 
-
-function insertData(){
-    
-}
