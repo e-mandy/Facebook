@@ -5,7 +5,14 @@ function getRegister(){
         document.getElementById('root').innerHTML = response
         sessionStorage.setItem('url', 'register')
         optionMaking()
-        validationInput()
+
+        const registerForm = document.getElementById('register')
+
+        registerForm.addEventListener('submit', (event)=>{
+            event.preventDefault()
+            validationInput()
+        })
+        
 
         if(sessionStorage.getItem('isValidForm') == true){
 
@@ -73,56 +80,51 @@ function validatePassword(password){
 
 function validationInput(){
 
-    const registerForm = document.getElementById('register')
+    const prenom = document.querySelector('.prenom').value
+    const nomFamille = document.querySelector('.nom_famille').value
+    const email = document.querySelector('.email').value
+    const password = document.querySelector('.password').value
+    
 
-    registerForm.addEventListener('submit', (event)=>{
-        event.preventDefault()
+    //On initialise dans le storage un champ qui se ccharge de vérifier si toutes les données renseignées respectent les conditions
+    sessionStorage.setItem('isValidForm', true)
 
-        const prenom = document.querySelector('.prenom').value
-        const nomFamille = document.querySelector('.nom_famille').value
-        const email = document.querySelector('.email').value
-        const password = document.querySelector('.password').value
+    if(!validateName(prenom) || !validateName(nomFamille) || !validateEmail(email) || !validatePassword(password)){
         
-
-        //On initialise dans le storage un champ qui se ccharge de vérifier si toutes les données renseignées respectent les conditions
-        sessionStorage.setItem('isValidForm', true)
-
-        if(!validateName(prenom) || !validateName(nomFamille) || !validateEmail(email) || !validatePassword(password)){
-            
-            sessionStorage.setItem('isValidForm', false)
+        sessionStorage.setItem('isValidForm', false)
 
 
-            if(!validateName(prenom)){
-                sessionStorage.setItem('error', 'Le prénom ne doit pas contenir de chiffres ni de caractères spéciaux !!')
-                const spanError = document.createElement('span')
-                spanError.textContent = sessionStorage.getItem('error')
-                document.querySelector('.prenom').parentElement.appendChild(spanError)
+        if(!validateName(prenom)){
+            sessionStorage.setItem('error', 'Le prénom ne doit pas contenir de chiffres ni de caractères spéciaux !!')
+            const spanError = document.createElement('span')
+            spanError.textContent = sessionStorage.getItem('error')
+            document.querySelector('.prenom').parentElement.appendChild(spanError)
 
-            }
-
-            if(!validateName(nomFamille)){
-                sessionStorage.setItem('error', 'Le nom de famille ne doit contenir de chiffres ni de caractères spéciaux !!')
-                const spanError = document.createElement('span')
-                spanError.textContent = sessionStorage.getItem('error')
-                document.querySelector('.nom_famille').parentElement.appendChild(spanError)
-            }
-
-            if(!validateEmail(email)){
-                sessionStorage.setItem('error', "L'email que vous avez renseigné n'est pas correcte.")
-                const spanError = document.createElement('span')
-                spanError.textContent = sessionStorage.getItem('error')
-                document.querySelector('.email').parentElement.appendChild(spanError)
-            }
-
-            if(!validatePassword(password)){
-                sessionStorage.setItem('error', 'Le mot de passe doit contenir au moins 8 caractères.')
-                const spanError = document.createElement('span')
-                spanError.textContent = sessionStorage.getItem('error')
-                document.querySelector('.password').parentElement.appendChild(spanError)
-            }
-            
         }
-    })
+
+        if(!validateName(nomFamille)){
+            sessionStorage.setItem('error', 'Le nom de famille ne doit contenir de chiffres ni de caractères spéciaux !!')
+            const spanError = document.createElement('span')
+            spanError.textContent = sessionStorage.getItem('error')
+            document.querySelector('.nom_famille').parentElement.appendChild(spanError)
+        }
+
+        if(!validateEmail(email)){
+            sessionStorage.setItem('error', "L'email que vous avez renseigné n'est pas correcte.")
+            const spanError = document.createElement('span')
+            spanError.textContent = sessionStorage.getItem('error')
+            document.querySelector('.email').parentElement.appendChild(spanError)
+        }
+
+        if(!validatePassword(password)){
+            sessionStorage.setItem('error', 'Le mot de passe doit contenir au moins 8 caractères.')
+            const spanError = document.createElement('span')
+            spanError.textContent = sessionStorage.getItem('error')
+            document.querySelector('.password').parentElement.appendChild(spanError)
+        }
+        
+    }
+    
 
 }
 
@@ -160,7 +162,12 @@ function emailVerify(){
         })
         .then(res => res.json())
         .then(res =>{
-            console.log(res)
+            if(res){
+                getEmailVerification()
+            }else{
+                sessionStorage('error', "Le code de validation n'a pas été envoyé.")
+                getRegister()
+            }
         })
     })
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Partials;
+namespace Controller;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -8,9 +8,9 @@ use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php'; // ou tes fichiers inclus manuellement
 
 class Mail{
-    private $host = 'smtp.gmail.com';
-    private $username = "elomanfred@gmail.com";
-    private $password = "Azerty1234";
+    private $host = 'sandbox.smtp.mailtrap.io';
+    private $username = "1ea3c65b3600ff";
+    private $password = "b4853dc7572d36";
     private $destinataire;
 
     public function __construct($destinataire){
@@ -33,7 +33,10 @@ class Mail{
             // Destinataire et expéditeur
             $mail->setFrom($this->username, 'Facebook');
             $mail->addAddress($this->destinataire);
+
+            // Génération d'un code à 6 chiffres
             $code = str_pad(strval(random_int(0, 999999)), 6, '0', STR_PAD_LEFT);
+            
             // Contenu
             $mail->isHTML(true);
             $mail->Subject = 'Vérification de l\'email de l\'utilisateur';
@@ -41,12 +44,13 @@ class Mail{
             $mail->AltBody = 'Copie-colle ce lien : https://tonsite.com/verify?token=XYZ';
 
             $mail->send();
-
-            return $code;
             echo 'Message envoyé';
         } catch (Exception $e) {
             echo "Erreur : {$mail->ErrorInfo}";
         }
+
+        return $code;
+
     }
 }
 
