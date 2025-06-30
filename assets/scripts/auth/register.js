@@ -1,5 +1,5 @@
 function getRegister(){
-    fetch(`http://localhost/Facebook/frontend/auth/register.html`)
+    fetch(`http://localhost/Facebook/frontend/auth/register.php`)
     .then(response => response.text())
     .then(response =>{
         document.getElementById('root').innerHTML = response
@@ -33,9 +33,11 @@ function optionMaking(){
 
     let selectMonth = document.getElementById('month')
     let month = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]
+    let i = 0
     month.map((value, index) =>{
+        i++
         const option = document.createElement('option')
-        option.value = value
+        option.value = i
         option.textContent = value
         if(index == now.getMonth()){
             option.selected = true
@@ -129,16 +131,32 @@ function emailVerify(){
 
     let registerData = new FormData(registerForm)
 
+    csrf_token = registerData.get('csrf_token')
+    nom = registerData.get('nom_famille')
+    prenom = registerData.get('prenom')
+    day = registerData.get('day')
+    month = registerData.get('month')
+    year = registerData.get('year')
+    genre = registerData.get('genre')
     email = registerData.get('email')
+    password = registerData.get('password')
 
 
     fetch(`http://localhost/Facebook/backend/auth/email_verify.php`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': csrf_token
         },
         body: JSON.stringify({
-            email: email
+            nom_famille: nom,
+            prenom: prenom,
+            day: day,
+            month: month,
+            year: year,
+            genre: genre,
+            email: email,
+            password: password
         })
         .then(res => res.json())
         .then(res =>{

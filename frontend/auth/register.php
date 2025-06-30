@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    
+?>
+
 <div class="w-screen h-screen bg-[#EFF2F5]">
     <div class="w-[432px] mx-auto">
         <img class="h-25 w-[432px] mx-auto mb-2" src="assets/images/facebook_logo.svg" alt="">
@@ -5,6 +10,7 @@
             <h3 class="font-bold text-[26px]">Créer un compte</h3>
             <p class="text-[#606770] mb-3">C'est simple et rapide.</p>
             <hr class="w-full text-[#CCD0D5]">
+            <input type="hidden" name="csrf_token" value="<?php echo $token ?>">
             <div class="p-4">
                 <div class="name w-full flex items-center justify-between mb-3 gap-3">
                     <div>

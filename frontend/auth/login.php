@@ -1,10 +1,17 @@
+<?php
+    session_start();
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+
+    $token = $_SESSION['csrf_token'];
+?>
+
 <div class="w-screen h-screen bg-[#EFF2F5]">
     <div class="w-[400px] mx-auto">
         <img class="h-20 w-[432px] mx-auto mb-2" src="assets/images/facebook_logo.svg" alt="">
         <form action="" class="mx-auto bg-white flex flex-col items-center rounded-lg shadow-xl py-2">
             <h3 class="text-lg my-3 ">Se connecter à Facebook</h3>
             <div class="px-4 py-2">
-                
+                <input type="hidden" value="<?php echo $token ?>">
                 <input type="email" class="w-full p-3 border border-[#CCD0D5] rounded mb-3" placeholder="Adresse e-mail">
 
                 <input type="password" class="w-full p-3 border border-[#CCD0D5] rounded mb-3" placeholder="Mot de passe">
