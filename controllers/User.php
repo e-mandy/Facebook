@@ -2,6 +2,9 @@
 
 namespace Controller;
 
+require 'Mail.php';
+require '../backend/includes/database.php';
+
 
 use Partials\Database;
 use Controller\Mail;
@@ -32,8 +35,9 @@ class User{
                 $code = $mailer->send();
 
                 //CREATION PARTIELLE DE L'UTILISATEUR
-                $req = "INSERT INTO Users (nom_famille, prenom, naissance, email, password, created_at, code_email) VALUES ? ? ? ? ? ?";
-                $stmt = $bd->pdo()->prepare($req);
+                $req = "INSERT INTO users (nom_famille, prenom, naissance, email, password, created_at, code_email) VALUES ?, ?, ?, ?, ?, ?";
+                $pdo = $bd->pdo();
+                $stmt = $pdo->prepare($req);
                 $stmt->bindValue(1, $data['nom_famille']);
                 $stmt->bindValue(2, $data['prenom']);
                 $stmt->bindValue(3, $data['naissance']);

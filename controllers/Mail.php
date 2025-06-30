@@ -5,11 +5,12 @@ namespace Controller;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'vendor/autoload.php'; // ou tes fichiers inclus manuellement
+require_once __DIR__ . '/../vendor/autoload.php';
+
 
 class Mail{
     private $host = 'sandbox.smtp.mailtrap.io';
-    private $username = "1ea3c65b3600ff";
+    private $username = "elomanfred@gmail.com";
     private $password = "b4853dc7572d36";
     private $destinataire;
 
@@ -25,7 +26,7 @@ class Mail{
             $mail->isSMTP();
             $mail->Host = $this->host;
             $mail->SMTPAuth = true;
-            $mail->Username = $this->username;
+            $mail->Username = "1ea3c65b3600ff";
             $mail->Password = $this->password;
             $mail->SMTPSecure = 'tls'; // ou 'ssl'
             $mail->Port = 587;

@@ -9,14 +9,17 @@ function getRegister(){
         const registerForm = document.getElementById('register')
 
         registerForm.addEventListener('submit', (event)=>{
+            console.log('Je suis ici')
             event.preventDefault()
             validationInput()
+            console.log(sessionStorage.getItem('isValidForm'))
+            if(sessionStorage.getItem('isValidForm') == "true"){
+                emailVerify()
+            }
         })
         
 
-        if(sessionStorage.getItem('isValidForm') == true){
-
-        }
+        
     })
 
     
@@ -47,7 +50,7 @@ function optionMaking(){
         option.value = i
         option.textContent = value
         if(index == now.getMonth()){
-            option.selected = true
+            option.selected = "true"
         }
         selectMonth.appendChild(option)
     }) 
@@ -129,6 +132,7 @@ function validationInput(){
 }
 
 function emailVerify(){
+    console.log('Je viens ici')
     const registerForm = document.getElementById('register')
 
     let registerData = new FormData(registerForm)
@@ -144,7 +148,7 @@ function emailVerify(){
     password = registerData.get('password')
 
 
-    fetch(`http://localhost/Facebook/backend/auth/email_verify.php`, {
+    fetch(`http://localhost/facebook/backend/auth/email_verify.php`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -160,15 +164,17 @@ function emailVerify(){
             email: email,
             password: password
         })
-        .then(res => res.json())
-        .then(res =>{
-            if(res){
-                getEmailVerification()
-            }else{
-                sessionStorage('error', "Le code de validation n'a pas été envoyé.")
-                getRegister()
-            }
-        })
+    })
+    .then(res => res.json())
+    .then(res =>{
+        if(res){
+            // getEmailVerification()
+            console.log('Validé : ' + res)
+        }else{
+            // sessionStorage('error', "Le code de validation n'a pas été envoyé.")
+            // getRegister()
+            console.log('Erreur : ' + res)
+        }
     })
 
 }

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    
+    $token = $_SESSION['csrf_token'];
 ?>
 
 <div class="w-screen h-screen bg-[#EFF2F5]">
