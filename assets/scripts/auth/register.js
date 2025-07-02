@@ -140,8 +140,8 @@ function emailVerify(){
     csrf_token = registerData.get('csrf_token')
     nom = registerData.get('nom_famille')
     prenom = registerData.get('prenom')
-    day = registerData.get('day')
-    month = registerData.get('month')
+    day = parseInt(registerData.get('day')) < 10 ? '0'+ registerData.get('day').toString() : registerData.get('day')
+    month = parseInt(registerData.get('month')) < 10 ? '0'+ registerData.get('month').toString() : registerData.get('month')
     year = registerData.get('year')
     genre = registerData.get('genre')
     email = registerData.get('email')
@@ -165,53 +165,13 @@ function emailVerify(){
             password: password
         })
     })
-    .then(res => res.json())
-    .then(res =>{
+    .then(res => {
         if(res){
-            // getEmailVerification()
-            console.log('Validé : ' + res)
+            getCodeMail()
         }else{
-            // sessionStorage('error', "Le code de validation n'a pas été envoyé.")
-            // getRegister()
-            console.log('Erreur : ' + res)
+            console.log('No Good : ' + res)
         }
     })
 
 }
 
-/*
-    const registerForm = document.getElementById('register')
-
-    let registerData = new FormData(registerForm)
-
-    nom = registerData.get('nom_famille')
-    prenom = registerData.get('prenom')
-    day = registerData.get('day')
-    month = registerData.get('month')
-    year = registerData.get('year')
-    genre = registerData.get('genre')
-    email = registerData.get('email')
-    password = registerData.get('password')
-
-
-    fetch(`http://localhost/Facebook/backend/auth/register.php`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            nom_famille: nom,
-            prenom: prenom,
-            day: day,
-            month: month,
-            year: year,
-            genre: genre,
-            email: email,
-            password: password
-        })
-        .then(res => res.json())
-        .then(res =>{
-            console.log(res)
-        })
-    })
-*/

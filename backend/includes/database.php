@@ -12,15 +12,13 @@ class Database{
     private $dbpass = "";
     private $pdo;
 
-    public function __contruct(){
+    public function __construct(){
         try{
-            $pdo = new PDO('mysql:'.$this->host.';dbname='.$this->dbname.';charset=utf-8',  $this->dbuser, $this->dbpass);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->pdo = new PDO("mysql:host={$this->host};dbname={$this->dbname};charset=utf8",  $this->dbuser, $this->dbpass);
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }catch(PDOException $e){
             die('Erreur de connexion: '. $e->getMessage());
         }
-
-        $this->pdo = $pdo;
     }
 
     public function pdo(){

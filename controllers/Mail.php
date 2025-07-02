@@ -2,10 +2,11 @@
 
 namespace Controller;
 
+require_once __DIR__ . '/../vendor/autoload.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require_once __DIR__ . '/../vendor/autoload.php';
 
 
 class Mail{
@@ -37,15 +38,12 @@ class Mail{
 
             // Génération d'un code à 6 chiffres
             $code = str_pad(strval(random_int(0, 999999)), 6, '0', STR_PAD_LEFT);
-            
             // Contenu
             $mail->isHTML(true);
             $mail->Subject = 'Vérification de l\'email de l\'utilisateur';
-            $mail->Body    = '<p>Bienvenue ! Ce code à 6 chiffres vous permettra d\'accéder à la plateforme : </p><br><h3>'. $code .'</h3>';
-            $mail->AltBody = 'Copie-colle ce lien : https://tonsite.com/verify?token=XYZ';
+            $mail->Body = '<p>Bienvenue ! Ce code à 6 chiffres vous permettra d\'accéder à la plateforme : </p><br><h3>'. $code .'</h3>';
 
             $mail->send();
-            echo 'Message envoyé';
         } catch (Exception $e) {
             echo "Erreur : {$mail->ErrorInfo}";
         }

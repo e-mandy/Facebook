@@ -2,8 +2,7 @@
 
 namespace Controller;
 
-require 'Mail.php';
-require '../backend/includes/database.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 
 use Partials\Database;
@@ -28,24 +27,25 @@ class User{
     // }
 
     public static function create($data = []){
-                $bd = new Database();
+            $bd = new Database();
             try{
                 
                 $mailer = new Mail($data['email']);
                 $code = $mailer->send();
 
                 //CREATION PARTIELLE DE L'UTILISATEUR
-                $req = "INSERT INTO users (nom_famille, prenom, naissance, email, password, created_at, code_email) VALUES ?, ?, ?, ?, ?, ?";
+                $req = "INSERT INTO users (nom_famille, prenom, naissance, email, password, created_at, code_email) VALUES (?, ?, ?, ?, ?, ?, ?)";
                 $pdo = $bd->pdo();
                 $stmt = $pdo->prepare($req);
-                $stmt->bindValue(1, $data['nom_famille']);
-                $stmt->bindValue(2, $data['prenom']);
-                $stmt->bindValue(3, $data['naissance']);
-                $stmt->bindValue(4, $data['email']);
-                $stmt->bindValue(5, $data['password']);
+                
                 $result = $stmt->execute([
-                    date("Y-m-d H-i-s"),
-                    $code
+                    $data['nom_famille'],
+                    $data['prenom'],
+                    $data['naissance'],
+                    $data['email'],
+                    $data['password'],
+                    date("Y-m-d H:i:s"),
+                    (int) $code
                 ]);
 
                 $response = $result ?  1 : 0;
@@ -53,7 +53,7 @@ class User{
                 return $response;
 
             }catch(PDOException $e){
-                die('Erreur :'. $e->getMessage());
+                die('Erreur : '. $e->getMessage());
             }
     }
 

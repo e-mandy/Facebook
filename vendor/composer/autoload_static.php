@@ -9,14 +9,27 @@ class ComposerStaticInit2185d2f99bcd56787481d9357a5972d3
     public static $prefixLengthsPsr4 = array (
         'P' => 
         array (
+            'Partials\\' => 9,
             'PHPMailer\\PHPMailer\\' => 20,
+        ),
+        'C' => 
+        array (
+            'Controller\\' => 11,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Partials\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/includes',
+        ),
         'PHPMailer\\PHPMailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
+        'Controller\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers',
         ),
     );
 
