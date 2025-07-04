@@ -1,12 +1,10 @@
-window.addEventListener('load', ()=>{
-    if(!sessionStorage.getItem('token')){
-        sessionStorage.getItem('url') === 'register' ? getRegister() : getLogin()
-    }
+import { route } from './routing/router.js'
 
-    // fetch(`http://localhost/Facebook/frontend/auth/email_verification.php`)
-    // .then(res => res.text())
-    // .then(res =>{
-    //     document.getElementById('root').innerHTML = res
-    // })
+window.addEventListener('load', ()=>{
+    let path = location.pathname
+    console.log(path)
+    route(path)
+    
 })
+
 

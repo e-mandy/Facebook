@@ -1,35 +1,17 @@
-function getRegister(){
-    fetch(`http://localhost/Facebook/frontend/auth/register.php`)
-    .then(response => response.text())
-    .then(response =>{
-        document.getElementById('root').innerHTML = response
-        sessionStorage.setItem('url', 'register')
-        optionMaking()
-
-        const registerForm = document.getElementById('register')
-
-        registerForm.addEventListener('submit', (event)=>{
-            console.log('Je suis ici')
-            event.preventDefault()
-            validationInput()
-            console.log(sessionStorage.getItem('isValidForm'))
-            if(sessionStorage.getItem('isValidForm') == "true"){
-                emailVerify()
-            }
-        })
-        
-
-        
-    })
-
-    
+export function handleRegisterForm(event, registerForm){
+    event.preventDefault()
+    validationInput()
+    if(sessionStorage.getItem('isValidForm') == "true"){
+        emailVerify(registerForm)
+    }
 }
 
-function optionMaking(){
+
+export function optionMaking(){
     let now = new Date()
 
     let selectDay = document.getElementById('day')
-    numberDay = 31
+    const numberDay = 31
     for(let i = 1; i <= numberDay; i++){
         const option = document.createElement('option')
         option.value = i
@@ -131,9 +113,7 @@ function validationInput(){
 
 }
 
-function emailVerify(){
-    console.log('Je viens ici')
-    const registerForm = document.getElementById('register')
+function emailVerify(registerForm){
 
     let registerData = new FormData(registerForm)
 

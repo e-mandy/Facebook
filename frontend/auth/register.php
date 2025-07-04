@@ -1,5 +1,9 @@
 <?php
     session_start();
+    if(!isset($_SESSION['csrf_token'])){
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    }
+
     $token = $_SESSION['csrf_token'];
 ?>
 
@@ -55,7 +59,7 @@
                 
                 <button class="w-1/2 mt-6 mb-4 py-1 mx-auto block bg-green-600 rounded text-white font-bold text-lg cursor-pointer" type="submit">S'inscrire</button>
                 
-                <a href="#" onclick="getLogin(event)" class="block text-center text-blue-600 text-lg cursor-pointer">Vous avez déjà un compte ?</a>
+                <a href="#" onclick="route('/login')" class="loginLink block text-center text-blue-600 text-lg cursor-pointer">Vous avez déjà un compte ?</a>
             </div>
             
         </form>

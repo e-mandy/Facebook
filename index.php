@@ -8,6 +8,6 @@
 </head>
 <body>
     <div id="root"></div>
-    <?php include_once "frontend/includes/scripts_resources.php"; ?>
+    <?php include_once "frontend/includes/scripts_resources.php" ?>
 </body>
 </html>
