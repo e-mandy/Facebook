@@ -1,28 +1,27 @@
-import { routes } from './links.js' 
+import { routesGet } from './links.js' 
 
-export function route(routeName){
+export function route(routeName, data = {}){
     let routeLocation = routeName
     if(routeName.includes('/Facebook')){
         routeLocation = routeName.replace('/Facebook', '')
     }
 
-    if(routes[routeLocation]){
-        history.pushState({}, "", routeName.includes('/Facebook') ? routeName : `/Facebook${routeName}`)
+    if(routesGet[routeLocation]){
+        history.pushState({ page: routeLocation, data: data }, "", routeName.includes('/Facebook') ? routeName : `/Facebook${routeName}`)
+        
         handleRoute(routeLocation)
     }
-    
 }
 
 export function handleRoute(routeName){
     const root = document.getElementById('root')
-    let link = routes[routeName].link
-    console.log("Dohi pour le moment")
+    let link = routesGet[routeName].link
     fetch(link)
     .then(res => res.text())
     .then(res =>{
         root.innerHTML = res
 
-        let route = routes[routeName]
+        let route = routesGet[routeName]
 
         //On peut également utiliser la propriété object.hasOwnProperty()
         if("onLoad" in route){
@@ -37,5 +36,8 @@ export function handleRoute(routeName){
 }
 
 window.addEventListener('popstate', (e)=>{
-    console.log(e.state)
+    if("page" in e.state){
+        console.log("Good")
+        route(e.state.page)
+    }
 })

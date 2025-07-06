@@ -1,7 +1,11 @@
+import { route } from "../routing/router.js"
+
+
 export function handleRegisterForm(event, registerForm){
     event.preventDefault()
     validationInput()
     if(sessionStorage.getItem('isValidForm') == "true"){
+        console.log("C'est good")
         emailVerify(registerForm)
     }
 }
@@ -117,15 +121,15 @@ function emailVerify(registerForm){
 
     let registerData = new FormData(registerForm)
 
-    csrf_token = registerData.get('csrf_token')
-    nom = registerData.get('nom_famille')
-    prenom = registerData.get('prenom')
-    day = parseInt(registerData.get('day')) < 10 ? '0'+ registerData.get('day').toString() : registerData.get('day')
-    month = parseInt(registerData.get('month')) < 10 ? '0'+ registerData.get('month').toString() : registerData.get('month')
-    year = registerData.get('year')
-    genre = registerData.get('genre')
-    email = registerData.get('email')
-    password = registerData.get('password')
+    const csrf_token = registerData.get('csrf_token')
+    const nom = registerData.get('nom_famille')
+    const prenom = registerData.get('prenom')
+    const day = parseInt(registerData.get('day')) < 10 ? '0'+ registerData.get('day').toString() : registerData.get('day')
+    const month = parseInt(registerData.get('month')) < 10 ? '0'+ registerData.get('month').toString() : registerData.get('month')
+    const year = registerData.get('year')
+    const genre = registerData.get('genre')
+    const email = registerData.get('email')
+    const password = registerData.get('password')
 
 
     fetch(`http://localhost/facebook/backend/auth/email_verify.php`, {
@@ -147,7 +151,7 @@ function emailVerify(registerForm){
     })
     .then(res => {
         if(res){
-            getCodeMail()
+            route('/email_verify', {email: email})
         }else{
             console.log('No Good : ' + res)
         }

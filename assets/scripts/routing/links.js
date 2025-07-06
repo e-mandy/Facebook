@@ -1,7 +1,8 @@
+import { emailIntroducing, handleEmailForm } from "../auth/email.js"
 import { handleRegisterForm, optionMaking } from "../auth/register.js"
 import { route } from "./router.js"
 
-export const routes = {
+export const routesGet = {
 
     '/': {
         link: "http://localhost/Facebook/index.php",
@@ -25,8 +26,28 @@ export const routes = {
             })
         }
     },
+
     '/login': {
         link: "http://localhost/Facebook/frontend/auth/login.php",
+    },
+
+    '/email_verify': {
+        link: "http://localhost/Facebook/frontend/auth/email_verification.php",
+        onLoad: ()=>{
+            emailIntroducing()
+        },
+        action: ()=>{
+            const emailForm = document.getElementById('email_verify')
+            emailForm.addEventListener('submit', (e)=>{
+                handleEmailForm(e, emailForm)
+            })
+        },
     }
 
+}
+
+export const routesPost = {
+    '/register': {
+        link: 'http://localhost/Facebook/backend/auth/'
+    }
 }

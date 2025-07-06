@@ -11,6 +11,7 @@
     
     if(isset($_SESSION['csrf_token']) && $csrf === $_SESSION['csrf_token']){
         
+        $_SESSION['crsf_token'] = null;
         $data = json_decode(file_get_contents('php://input'), true);
 
         $birthday = "{$data['year']}-{$data['month']}-{$data['day']}";
