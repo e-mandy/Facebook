@@ -1,3 +1,4 @@
+import { route } from "../routing/router.js"
 
 export function emailIntroducing(){
     console.log(history.state.data.email)
@@ -38,7 +39,9 @@ function emailCompare(email, code){
         })
     }).then(res => res.json())
     .then(res =>{
-
+        if(!res){
+            route('/register', true)
+        }
     })
     
 }
