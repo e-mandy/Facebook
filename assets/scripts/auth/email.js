@@ -35,12 +35,15 @@ function emailCompare(email, code){
         },
         body: JSON.stringify({
             email: email,
-            code_otp: code
+            code_otp: parseInt(code)
         })
     }).then(res => res.json())
     .then(res =>{
-        if(!res){
-            route('/register', true)
+        if(res){
+            let data = res
+            route('/home', data)
+        }else{
+            route('/register', {response: false})
         }
     })
     

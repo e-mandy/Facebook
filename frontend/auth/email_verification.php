@@ -7,7 +7,9 @@
     $token = $_SESSION['csrf_token'];
 ?>
 <div class="bg-[#EFF2F5] h-screen">
-    <?php require_once "../includes/navbar.php" ?>
+    <nav class="py-4 w-full flex justify-start shadow-lg bg-white">
+        <img class="h-16 w-fit" src="assets/images/facebook_logo.svg" alt="">
+    </nav>
 
     <div>
         <form action="" class="mx-auto mt-12 flex flex-col items-center rounded-lg py-2 w-[500px] bg-white p-4" id="email_verify">

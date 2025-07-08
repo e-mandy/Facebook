@@ -42,6 +42,14 @@ export const routesGet = {
                 handleEmailForm(e, emailForm)
             })
         },
+    },
+
+    '/home': {
+        link: 'http://localhost/Facebook/frontend/home.php'
+    },
+
+    '/friends': {
+        link: 'http://localhost/Facebook/frontend/friends/home.php'
     }
 
 }
