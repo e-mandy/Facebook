@@ -5,10 +5,11 @@ export function route(routeName, data = {}){
     if(routeName.includes('/Facebook')){
         routeLocation = routeName.replace('/Facebook', '')
     }
-
+    
     if(routesGet[routeLocation]){
-        history.pushState({ page: routeLocation, data: data }, "", routeName.includes('/Facebook') ? routeName : `/Facebook${routeName}`)
         
+        history.pushState({ page: routeLocation, data: data }, "", routeName.includes('/Facebook') ? routeName : `/Facebook${routeName}`)
+        console.log(routeName)
         handleRoute(routeLocation)
     }
 }

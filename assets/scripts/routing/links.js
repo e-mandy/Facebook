@@ -50,6 +50,10 @@ export const routesGet = {
 
     '/friends': {
         link: 'http://localhost/Facebook/frontend/friends/home.php'
+    },
+
+    '/requests': {
+        link: 'http://localhost/Facebook/frontend/friends/invitations.php'
     }
 
 }

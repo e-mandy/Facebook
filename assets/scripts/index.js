@@ -4,7 +4,6 @@ window.addEventListener('load', ()=>{
     let path = location.pathname
     console.log(path)
     route(path)
-    
 })
 
 
