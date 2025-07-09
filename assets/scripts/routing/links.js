@@ -52,9 +52,22 @@ export const routesGet = {
         link: 'http://localhost/Facebook/frontend/friends/home.php'
     },
 
-    '/requests': {
+    '/friends-requests': {
         link: 'http://localhost/Facebook/frontend/friends/invitations.php'
+    },
+
+    '/friends-suggestions': {
+        link: 'http://localhost/Facebook/frontend/friends/suggestions.php'
+    },
+
+    '/friends-all': {
+        link: 'http://localhost/Facebook/frontend/friends/all_friends.php'
+    },
+
+    '/friends-birthday': {
+        link: 'http://localhost/Facebook/frontend/friends/birthday.php'
     }
+   
 
 }
 

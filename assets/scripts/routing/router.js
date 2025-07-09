@@ -1,15 +1,14 @@
 import { routesGet } from './links.js' 
 
 export function route(routeName, data = {}){
+    console.log(routeName)
     let routeLocation = routeName
     if(routeName.includes('/Facebook')){
         routeLocation = routeName.replace('/Facebook', '')
     }
-    
+
     if(routesGet[routeLocation]){
-        
         history.pushState({ page: routeLocation, data: data }, "", routeName.includes('/Facebook') ? routeName : `/Facebook${routeName}`)
-        console.log(routeName)
         handleRoute(routeLocation)
     }
 }
@@ -18,7 +17,8 @@ export function handleRoute(routeName){
     const root = document.getElementById('root')
     let link = routesGet[routeName].link
     fetch(link)
-    .then(res => res.text())
+    .then(res =>
+        res.text())
     .then(res =>{
         root.innerHTML = res
 

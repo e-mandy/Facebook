@@ -10,16 +10,11 @@
                 </div>
                 <div>
                     <p>Ami(e)s</p>
-                    <h1 class="text-2xl font-bold">Invitations</h1>
+                    <h1 class="text-2xl font-bold">Suggestions</h1>
                 </div>
             </div>
             <div class="pl-2">
-                <div class="mb-4">
-                    <h4 class="font-semibold">Invitations</h4>
-                    <a href="#" class="text-blue-500">Voir les invitations envoyées</a>
-                </div>
                 <ul>
-                    <span>Aucune nouvelle invitation</span>
                 </ul>
             </div>
         </div>

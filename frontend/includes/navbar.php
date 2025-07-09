@@ -1,5 +1,5 @@
 <link href="assets/styles/navbar.css" rel="stylesheet">
-<nav class="flex justify-between items-center shadow bg-white px-2 h-16 sticky top-0 z-99">
+<nav class="flex justify-between items-center shadow bg-white px-2 h-15 sticky w-full top-0 z-99">
     <div class="flex items-center gap-2">
         <a href=""><img class="h-10" src="assets/images/navbar/Facebook_logo.png"></a>
         <label class="flex items-center bg-[#F2F2F2] py-2 px-3 rounded-2xl gap-2">

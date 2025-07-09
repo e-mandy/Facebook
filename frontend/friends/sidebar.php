@@ -1,4 +1,4 @@
-<div class="w-[24%] fixed overflow-y-auto left-0 h-screen overflow-x-hidden pl-2 bg-white shadow-xl">
+<div class="w-[24%] overflow-y-auto left-0 h-screen overflow-x-hidden pl-2 bg-white shadow-xl">
     <div class="flex justify-between items-center px-3 my-3">
         <div class="rounded-[50%] bg-[#EFF2F5] hover:bg-[#D6D9DC] cursor-pointer p-2">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">

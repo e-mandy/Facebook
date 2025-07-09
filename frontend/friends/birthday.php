@@ -13,6 +13,11 @@
             </div>
             <?php require_once "./friends_menu.php" ?>
         </div>
-        <?php require_once "./no_friends.php" ?>
+        <div class="w-[76%] ml-[24%] h-full">
+            <div class="flex flex-col items-center justify-center h-full gap-6">
+                <img class="h-24" src="assets/images/friends/anniversaire.png" alt="">
+                <p class="font-bold text-gray-600 text-lg">Quand c’est l’anniversaire d’un(e) ami(e), vous le verrez ici.</p>
+            </div>
+        </div>
     </div>
 </div>

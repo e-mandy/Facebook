@@ -5,5 +5,3 @@ window.addEventListener('load', ()=>{
     console.log(path)
     route(path)
 })
-
-
