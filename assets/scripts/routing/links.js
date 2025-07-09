@@ -66,6 +66,14 @@ export const routesGet = {
 
     '/friends-birthday': {
         link: 'http://localhost/Facebook/frontend/friends/birthday.php'
+    },
+
+    '/groupes': {
+        link: 'http://localhost/Facebook/frontend/groupes/home.php'
+    },
+
+    '/groupes-discover': {
+        link: 'http://localhost/Facebook/frontend/groupes/discover.php'
     }
    
 
