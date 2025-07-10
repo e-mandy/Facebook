@@ -3,8 +3,8 @@ import { route } from "../routing/router.js"
 export function emailIntroducing(){
     console.log(history.state.data.email)
 
-    const email_send = document.querySelector('.email_send')
-    
+    const email_send = document.querySelector('span[class="email_send"]')
+    console.log(email_send)
     email_send.textContent = history.state.data.email
 
     
@@ -15,17 +15,19 @@ export function handleEmailForm(e, emailForm){
     e.preventDefault()
     const emaillCheckForm = new FormData(emailForm)
 
-    email_send = document.querySelector('.email_send').value
+    let email_send = document.querySelector('span[class="email_send"]').innerText
+    console.log(email_send)
     
-    code_OTP = emaillCheckForm.get('code_otp')
+    
+    let code_OTP = emaillCheckForm.get('code_otp')
 
     emailCompare(email_send, code_OTP)
 }
 
 function emailCompare(email, code){
 
-    emailForm = new FormData(document.getElementById('email_verify'))
-    csrf_token = emailForm.get('csrf_token')
+    const emailForm = new FormData(document.getElementById('email_verify'))
+    let csrf_token = emailForm.get('csrf_token')
 
     fetch('http://localhost/Facebook/backend/auth/email_certify.php', {
         method: 'POST',

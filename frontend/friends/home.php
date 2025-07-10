@@ -11,8 +11,8 @@
                     </svg>
                 </div>
             </div>
-            <?php require_once "./friends_menu.php" ?>
+            <?php require_once "./includes/friends_menu.php" ?>
         </div>
-        <?php require_once "./no_friends.php" ?>
+        <?php require_once "./includes/no_friends.php" ?>
     </div>
 </div>

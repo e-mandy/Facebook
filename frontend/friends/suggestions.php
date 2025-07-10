@@ -19,6 +19,6 @@
             </div>
         </div>
     
-        <?php require_once "./no_friends.php" ?>
+        <?php require_once "./includes/no_friends.php" ?>
     </div>
 </div>

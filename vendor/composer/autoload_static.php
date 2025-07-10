@@ -21,7 +21,7 @@ class ComposerStaticInit2185d2f99bcd56787481d9357a5972d3
     public static $prefixDirsPsr4 = array (
         'Partials\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/includes',
+            0 => __DIR__ . '/../..' . '/backend/includes',
         ),
         'PHPMailer\\PHPMailer\\' => 
         array (

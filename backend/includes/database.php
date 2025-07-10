@@ -4,6 +4,8 @@ namespace Partials;
 
 use PDO;
 use PDOException;
+require_once __DIR__ . '/../../vendor/autoload.php';
+
 
 class Database{
     private $host = "localhost";

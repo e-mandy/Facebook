@@ -69,7 +69,7 @@ class User{
             $stmt = $pdo->prepare($req);
             $stmt->execute([$email]);
             
-            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $data = $stmt->fetch(PDO::FETCH_ASSOC);
             
             
             return $data;

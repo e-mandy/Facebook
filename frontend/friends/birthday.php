@@ -11,7 +11,7 @@
                     </svg>
                 </div>
             </div>
-            <?php require_once "./friends_menu.php" ?>
+            <?php require_once "./includes/friends_menu.php" ?>
         </div>
         <div class="w-[76%] ml-[24%] h-full">
             <div class="flex flex-col items-center justify-center h-full gap-6">
