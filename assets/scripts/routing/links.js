@@ -74,6 +74,10 @@ export const routesGet = {
 
     '/groupes-discover': {
         link: 'http://localhost/Facebook/frontend/groupes/discover.php'
+    },
+
+    '/groupes-all': {
+        link: 'http://localhost/Facebook/frontend/groupes/all_groupes.php'
     }
    
 
