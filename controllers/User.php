@@ -11,21 +11,6 @@ use PDO;
 use PDOException;
 
 class User{
-    private $nom_famille;
-    private $prenom;
-    private $email;
-    private $birthday;
-    private $password;
-     
-
-    // public function __construct($nom_famille, $prenom, $email, $birthday, $password) {
-    //         $bd = new Database();
-    //         $this->nom_famille = $nom_famille;
-    //         $this->prenom = $prenom;
-    //         $this->email = $email;
-    //         $this->birthday = $birthday;
-    //         $this->password = hash(PASSWORD_DEFAULT, $password);
-    // }
 
     public static function create($data = []){
         $bd = new Database();

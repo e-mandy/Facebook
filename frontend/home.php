@@ -14,7 +14,7 @@
                 </a>
             </li>
             <li>
-                <a href="" class="flex gap-3 p-2 hover:bg-[#E5E8EA] rounded-l-lg items-center">
+                <a href="https://www.meta.ai/?utm_source=facebook_bookmarks&fbclid=IwY2xjawLcqb9leHRuA2FlbQIxMABicmlkETFMaGJoOE5pN0VhSnd5NWJoAR4vCpPnj-oV3JgnbfMv-NW3Z6X4J2x8eJt-d8wXlhB4RP0DioNplvc29alXwg_aem_2i7Fnaims2bYdLkdPtzdSw" class="flex gap-3 p-2 hover:bg-[#E5E8EA] rounded-l-lg items-center">
                     <span>
                         <img class="h-8" src="assets/images/home/meta.png" alt="" class="h-10 w-10">
                     </span>
@@ -191,7 +191,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                     </svg>
                 </span>
-                <button class="p-2 rounded-[20px] pl-3 bg-[#edf0f2] w-full text-left hover:bg-[#E3E6E9] cursor-pointer">Quoi de neuf, Joliette</button>
+                <button onClick="addPostPop(event)" class="p-2 rounded-[20px] pl-3 bg-[#edf0f2] w-full text-left hover:bg-[#E3E6E9] cursor-pointer">Quoi de neuf, Joliette</button>
             </div>
             <hr class="mb-2 text-[#F2F2F2] ">            
             <div class="flex justify-center gap-2">
