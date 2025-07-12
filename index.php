@@ -1,3 +1,7 @@
+<?php
+    require_once 'cors.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>

@@ -1,3 +1,4 @@
+<?php require_once "../cors.php"; ?>
 <?php require_once "includes/navbar.php"; ?>
 
 <div class="flex gap-8 py-3">

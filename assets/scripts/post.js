@@ -4,12 +4,18 @@ function addPostPop(e){
 
     let popupPost = popPost()
     divParent.insertAdjacentHTML('afterend', popupPost)
+
+    const textarea = document.querySelector('textarea')
+    autoTextareaGrow(textarea)
     
 }
 
 function popPost(){
     return `
-        <form action="#" method="POST"  class="h-[400px] w-[500px] bg-white fixed top-[50%] translate-x-[-50%] translate-y-[-50%] left-[50%] rounded-lg after:content-[''] after:bg-[url('assets/images/close.png')] after:bg-contain after:rounded-[50%] after:bg-[#D6D9DC] after:w-6 after:h-6 after:absolute after:top-3 after:right-2">
+        <form action="#" method="POST" class="min-h-[400px] w-[500px] bg-white fixed top-[50%] translate-x-[-50%] translate-y-[-50%] left-[50%] rounded-lg">
+            <div class="absolute top-3 right-3 w-6 h-6 rounded-[50%] bg-[#D6D9DC] p-1 cursor-pointer">
+                <img src="assets/images/close.png" class="w-10">
+            </div>
             <h2 class="text-center py-4 text-lg font-bold">Créer une publication</h2>
             <hr>
             <div class="px-4 h-full flex flex-col">
@@ -21,17 +27,31 @@ function popPost(){
                     </div>
                     <h4>Joliette Alberto</h4>
                 </div>
-                <textarea class="w-full resize-none focus:outline-none text-xl" placeholder="Quoi de neuf, Joliette ?"></textarea>
-                <div class="flex items-center border-1 border-[#D0D3D6] p-3 font-semibold rounded-lg shadow-sm justify-between">
-                    <label for="post">
-                        Ajouter à votre publication
-                        <input type="file" name="post" id="post" class="hidden">
-                    </label>
-                    <div>
-                        <img src="assets/images/home/image_download.png" class="h-6">
+                <div class="min-h-51">
+                    <textarea class="w-full resize-none text-2xl min-h-51 outline-black p-2 outline-none" placeholder="Quoi de neuf, Joliette ?"></textarea>
+                </div>
+                <div class="w-full p-4">
+                    <div class="flex items-center border-1 border-[#D0D3D6] p-3 gap-4 m-auto font-semibold rounded-lg shadow-sm justify-between mb-3">
+                        <label for="post" class="cursor-pointer">
+                            Ajouter à votre publication
+                            <input type="file" name="post" id="post" class="hidden">
+                        </label>
+                        <div>
+                            <img src="assets/images/home/image_download.png" class="h-6">
+                        </div>
                     </div>
+                    <button type="submit" class="bg-blue-600 text-white text-center w-full py-2 rounded-lg cursor-pointer hover:bg-[#0961F2]">Publier</button>
                 </div>
             </div>
         </form>
     `
+}
+
+function autoTextareaGrow(element){
+    element.addEventListener('input', (e)=>{
+        element.style.height = "auto"
+        let textHeight = e.target.scrollHeight
+        let minTextHeight = 51
+        element.style.height = `${Math.max(textHeight, minTextHeight)}px` 
+    })
 }
