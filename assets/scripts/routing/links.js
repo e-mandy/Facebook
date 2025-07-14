@@ -45,7 +45,11 @@ export const routesGet = {
     },
 
     '/home': {
-        link: 'http://localhost/Facebook/frontend/home.php'
+        link: 'http://localhost/Facebook/frontend/home.php',
+
+        action: ()=>{
+            
+        }
     },
 
     '/friends': {
