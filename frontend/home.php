@@ -1,12 +1,9 @@
-<?php require_once "../cors.php"; ?>
-<?php require_once "includes/navbar.php"; ?>
-
 <?php
-    if(!isset($_SESSION['csrf_token']) || empty($_SESSION['csrf_token'])){
-        
-    }
+require_once "../cors.php";
 ?>
 
+<script>
+</script>
 <div class="flex gap-8 py-3">
     <div class="w-[24%] fixed overflow-y-auto left-0 h-screen overflow-x-hidden pl-2">
         <ul>

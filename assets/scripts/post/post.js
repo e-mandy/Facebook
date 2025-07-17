@@ -1,7 +1,7 @@
 function addPostPop(e){
     const button = e.target
     const divParent = button.parentElement
-
+    
     let popupPost = popPost()
     divParent.insertAdjacentHTML('afterend', popupPost)
 
@@ -38,7 +38,6 @@ function addPostPop(e){
 function popPost(){
     return `
         <form method="POST" enctype="multipart/form-data" class="min-h-[400px] w-[500px] bg-white fixed top-[50%] translate-x-[-50%] translate-y-[-50%] left-[50%] rounded-lg" id="postForm">
-            <input type="hidden" value="<?php $tokan ?>" name="csrf_token">
             <div class="absolute top-3 right-3 w-6 h-6 rounded-[50%] bg-[#D6D9DC] p-1 cursor-pointer">
                 <img src="assets/images/close.png" class="w-10">
             </div>
@@ -104,25 +103,10 @@ function handlePostForm(e){
     e.preventDefault()
     const postForm = new FormData(e.target)
 
-    let textarea = postForm.get('description')
-    console.log(textarea)
-
-    let file = postForm.get('post')
-    let content = undefined
-    if(file.files != 0){
-        content = file
-    }
-
     fetch('http://localhost/Facebook/backend/post/post_action.php', {
         method: "POST",
-        headers: {
-            "Content-Type": 'application/json'
-        },
-        body: JSON.stringify({
-            description: (textarea != "") ? textarea : "",
-            image: (content != undefined && content.type.startsWith('/image')) ? content : "",
-            video: (content != undefined && content.type.startsWith('/video')) ? content : ""
-        })
+        body: postForm
+        
     })
     .then(res => res.json())
     .then(res => {
