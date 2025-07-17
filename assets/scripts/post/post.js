@@ -38,7 +38,7 @@ function addPostPop(e){
 function popPost(){
     return `
         <form method="POST" enctype="multipart/form-data" class="min-h-[400px] w-[500px] bg-white fixed top-[50%] translate-x-[-50%] translate-y-[-50%] left-[50%] rounded-lg" id="postForm">
-            <div class="absolute top-3 right-3 w-6 h-6 rounded-[50%] bg-[#D6D9DC] p-1 cursor-pointer">
+            <div class="absolute top-3 right-3 w-6 h-6 rounded-[50%] bg-[#D6D9DC] p-1 cursor-pointer" onclick="route('home')">
                 <img src="assets/images/close.png" class="w-10">
             </div>
             <h2 class="text-center py-4 text-lg font-bold">Créer une publication</h2>
@@ -110,6 +110,6 @@ function handlePostForm(e){
     })
     .then(res => res.json())
     .then(res => {
-        console.log("Je suis ici : ", res)
+        console.log("Résultat : ", res)
     })
 }

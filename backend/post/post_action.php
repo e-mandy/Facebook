@@ -12,11 +12,15 @@ use Controller\Post;
         if(isset($_FILES['post']) && $_FILES['post']['error'] == 0){
             $file = $_FILES['post'];
             $result = File::verify($file);
+            if(isset($result['size_error']) || isset($result['ext_error']) || isset($result['type_error'])){
+                echo json_encode($result); 
+                exit();
+            }
             $savefile = File::save($file, $result['file_type']);
             if($savefile['return']){
                 $post = Post::create([
                     'file' => $savefile['filename'],
-                    'description' => $_POST['descaription']
+                    'description' => htmlspecialchars($_POST['description'])
                 ]);
                 
                 if($post){

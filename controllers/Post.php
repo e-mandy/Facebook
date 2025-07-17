@@ -26,12 +26,12 @@ class Post{
 
             $response = $result ?  1 : 0;
 
+            unset($bd);
             return $response;
 
         }catch(PDOException $e){
             die('Erreur : '. $e->getMessage());
         }
-        unset($bd);
     }
 
     public static function all(){

@@ -26,7 +26,7 @@ require_once "../cors.php";
                 </a>
             </li>
             <li>
-                <a href="" class="flex gap-3 p-2 hover:bg-[#E5E8EA] rounded-l-lg items-center">
+                <a class="flex gap-3 p-2 hover:bg-[#E5E8EA] rounded-l-lg items-center cursor-pointer" onclick="route('/friends')">
                     <span>
                         <img class="h-8" src="assets/images/home/amis_home.png" alt="">
                     </span>

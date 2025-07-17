@@ -25,7 +25,7 @@ class File{
             }
         }else if(str_starts_with($file['type'], 'video/')){
             $result['file_type'] = 'video';
-            if(!in_array($path['extension'], $ext_image)){
+            if(!in_array($path['extension'], $ext_video)){
                 return [
                     'ext_error' => "L'extension de la vidéo n'est pas reconnue parmi celle autorisée."
                 ];
@@ -42,18 +42,20 @@ class File{
     }
 
     public static function save($file, $type){
-        $filename = date('His').'-'.basename($file['name']);
-        $dir = 'storage/';
+        $file_info = pathinfo($file['name']);
+
+        $filename = date('Ymd-His').'.'.$file_info['extension'];
+        $dir = __DIR__.'/../storage/';
 
         if($type == 'image'){
-            $dir = $dir.'Images/';
+            $dir = $dir.'Images';
         }else if($type == 'video'){
-            $dir = $dir.'Videos/';
+            $dir = $dir.'Videos';
         }
 
         return [
             'filename' => $filename,
-            'return' => move_uploaded_file($filename, $dir.'/'.$filename)
+            'return' => move_uploaded_file($file['tmp_name'], $dir.'/'.$filename)
         ];
 
     }
