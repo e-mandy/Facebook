@@ -2,11 +2,9 @@
 require_once "../cors.php";
 ?>
 
-<script>
-</script>
 <div class="flex gap-8 py-3">
     <div class="w-[24%] fixed overflow-y-auto left-0 h-screen overflow-x-hidden pl-2">
-        <ul>
+        <ul id="liste">
             <li>
                 <a href="" class="flex gap-3 p-2 hover:bg-[#E5E8EA] rounded-l-lg items-center">
                     <span>
@@ -26,7 +24,7 @@ require_once "../cors.php";
                 </a>
             </li>
             <li>
-                <a class="flex gap-3 p-2 hover:bg-[#E5E8EA] rounded-l-lg items-center cursor-pointer" onclick="route('/friends')">
+                <a href="/Facebook/friends" class="flex gap-3 p-2 hover:bg-[#E5E8EA] rounded-l-lg items-center cursor-pointer">
                     <span>
                         <img class="h-8" src="assets/images/home/amis_home.png" alt="">
                     </span>
@@ -34,7 +32,7 @@ require_once "../cors.php";
                 </a>
             </li>
             <li>
-                <a href="" class="flex gap-3 p-2 hover:bg-[#E5E8EA] rounded-l-lg items-center">
+                <a href="/home" class="flex gap-3 p-2 hover:bg-[#E5E8EA] rounded-l-lg items-center">
                     <span>
                         <img class="h-8" src="assets/images/navbar/Facebook_logo.png" alt="">
                     </span>
@@ -42,7 +40,7 @@ require_once "../cors.php";
                 </a>
             </li>
             <li>
-                <a href="" class="flex gap-3 p-2 hover:bg-[#E5E8EA] rounded-l-lg items-center">
+                <a href="/Facebook/souvernirs" class="flex gap-3 p-2 hover:bg-[#E5E8EA] rounded-l-lg items-center">
                     <span>
                         <img class="h-8" src="assets/images/home/souvenirs.png" alt="">
                     </span>
@@ -58,7 +56,7 @@ require_once "../cors.php";
                 </a>
             </li>
             <li>
-                <a href="" class="flex gap-3 p-2 hover:bg-[#E5E8EA] rounded-l-lg items-center">
+                <a href="/Facebook/groupes" class="flex gap-3 p-2 hover:bg-[#E5E8EA] rounded-l-lg items-center">
                     <span>
                         <img class="h-8" src="assets/images/home/groupes.png" alt="">
                     </span>

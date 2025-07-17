@@ -5,4 +5,5 @@
 <script src="assets/scripts/auth/email.js" type="module" defer></script>
 <script src="assets/scripts/routing/router.js" type="module" defer></script>
 <script src="assets/scripts/routing/links.js" type="module" defer></script>
-<script src="assets/scripts/post/post.js" defer></script>
+<script src="assets/scripts/post/post.js" type="module" defer></script>
+<script src="assets/scripts/home.js" defer type="module"></script>

@@ -1,3 +1,6 @@
+<?php
+require_once "../../cors.php";
+?>
 <div class="h-screen">
     <?php require_once "../includes/navbar.php" ?>
     <div class="flex h-full">

@@ -1,5 +1,6 @@
 import { emailIntroducing, handleEmailForm } from "../auth/email.js"
 import { handleRegisterForm, optionMaking } from "../auth/register.js"
+import { handleHomeRoute } from "../home.js"
 import { route } from "./router.js"
 
 export const routesGet = {
@@ -46,9 +47,16 @@ export const routesGet = {
 
     '/home': {
         link: 'http://localhost/Facebook/frontend/home.php',
-
+        
         action: ()=>{
-            
+            let listUrl = document.querySelectorAll('#liste li a')
+
+            listUrl.forEach(aElement =>{
+                aElement.addEventListener('click', (e)=>{
+                    e.preventDefault()
+                    handleHomeRoute(aElement)
+                })
+            })
         }
     },
 
