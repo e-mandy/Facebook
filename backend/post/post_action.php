@@ -20,6 +20,7 @@ use Controller\Post;
             if($savefile['return']){
                 $post = Post::create([
                     'file' => $savefile['filename'],
+                    'type' => $result['file_type'],
                     'description' => htmlspecialchars($_POST['description'])
                 ]);
                 

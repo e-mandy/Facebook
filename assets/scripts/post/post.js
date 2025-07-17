@@ -110,6 +110,8 @@ function handlePostForm(e){
     })
     .then(res => res.json())
     .then(res => {
-        console.log("Résultat : ", res)
+        if(res.status == "success"){
+            route('/home')
+        }
     })
 }

@@ -13,13 +13,14 @@ class Post{
         try{
             
             //CREATION D'UN POST
-            $req = "INSERT INTO posts (description, file, date, id_user) VALUES (?, ?, ?, ?)";
+            $req = "INSERT INTO posts (description, file, type, date, id_user) VALUES (?, ?, ?, ?, ?)";
             $pdo = $bd->pdo();
             $stmt = $pdo->prepare($req);
             
             $result = $stmt->execute([
                 $data['description'],
                 $data['file'],
+                $data['type'],
                 date('Y-m-d H:i:s'),
                 46
             ]);

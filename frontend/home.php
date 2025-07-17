@@ -1,7 +1,7 @@
 <?php
 require_once "../cors.php";
 ?>
-
+<?php require_once "includes/navbar.php"; ?>
 <div class="flex gap-8 py-3">
     <div class="w-[24%] fixed overflow-y-auto left-0 h-screen overflow-x-hidden pl-2">
         <ul id="liste">
@@ -185,7 +185,7 @@ require_once "../cors.php";
             </li>
         </ul>
     </div> 
-    <div class="w-[49%] h-screen m-auto">
+    <div class="middle w-[49%] h-screen m-auto">
         <div class="bg-white p-4 rounded-xl shadow mb-4">
             <div class="flex gap-4 items-center mb-3">
                 <span>
