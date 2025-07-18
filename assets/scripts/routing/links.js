@@ -51,10 +51,10 @@ export const routesGet = {
             let posts = getPosts()
             posts.then(res =>{
                 const middle = document.querySelector('.middle')
-                console.log(res)
+                
                 let postsTab = displayPosts(res)
                 postsTab.forEach(postDisplay =>{
-                    middle.insertAdjacentElement('beforeend', postDisplay)
+                    middle.insertAdjacentHTML('beforeend', postDisplay)
                 })
             })
             
