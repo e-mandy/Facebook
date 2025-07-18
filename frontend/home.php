@@ -2,7 +2,7 @@
 require_once "../cors.php";
 ?>
 <?php require_once "includes/navbar.php"; ?>
-<div class="flex gap-8 py-3">
+<div class="flex gap-8 py-3 mt-16">
     <div class="w-[24%] fixed overflow-y-auto left-0 h-screen overflow-x-hidden pl-2">
         <ul id="liste">
             <li>
@@ -211,7 +211,7 @@ require_once "../cors.php";
                 </a>
             </div>
         </div>
-        <div class="bg-white p-2 rounded-xl shadow">
+        <div class="bg-white p-2 rounded-xl shadow mb-4">
             <div class="flex items-center hover:bg-[#F2F2F2] gap-3 p-2 rounded-lg">
                 <div class="p-2 bg-[#d7e8f7] rounded-[50%]">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true" class="text-blue-600 xfx01vb x1lliihq x1tzjh5l x1k90msu x2h7rmj x1qfuztq" style="--color:var(--accent)">
