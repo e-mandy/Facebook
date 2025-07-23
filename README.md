@@ -1,4 +1,4 @@
-# PRPOJET FACEBOOK FROM SCRATCH
+# PROJET FACEBOOK FROM SCRATCH
 
 L'objectif de ce projet est de développer la plateforme Facebook sans support de Framework, en utilisatant principalement les langages PHP et Javascript et en apportant notre propre touche d'esthétique (HTML & CSS).
 
@@ -20,4 +20,4 @@ L'objectif de ce projet est de développer la plateforme Facebook sans support d
  - Settings ❌
 
 ## Membres de l'équipe
-  * ATOHOUN Andy
+  * 🙎🏿‍♂️ ATOHOUN Andy
